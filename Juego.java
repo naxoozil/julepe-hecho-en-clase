@@ -128,17 +128,17 @@ public class Juego
      * jugadores ya han sido creados. 
      * 
      * La partida se desarrolla conforme a las normas del julepe con la
-     * excepción de que es el usuario humano quien lanza cada vez la primera
-     * carta, independientemente de qué usuario haya ganado la baza anterior y,
-     * además, los jugadores no humanos no siguen ningún criterio a la hora
-     * de lanzar sus cartas, haciéndolo de manera aleatoria.
+     * excepcion de que es el usuario humano quien lanza cada vez la primera
+     * carta, independientemente de que usuario haya ganado la baza anterior y,
+     * además, los jugadores no humanos no siguen ningun criterio a la hora
+     * de lanzar sus cartas, haciendolo de manera aleatoria.
      * 
-     * En concreto, el método de se encarga de:
+     * En concreto, el metodo de se encarga de:
      * 1. Repartir las cartas a los jugadores.
      * 2. Solicitar por teclado la carta que quiere lanzar el jugador humano.
      * 3. Lanzar una carta por cada jugador no humano.
      * 4. Darle la baza al jugador que la ha ganado.
-     * 5. Informar de qué jugador ha ganado la baza.
+     * 5. Informar de que jugador ha ganado la baza.
      * 6. Repetir el proceso desde el punto 2 hasta que los jugadores hayan
      *    tirado todas sus cartas.
      * 7. Informar de cuántas bazas ha ganado el jugador humano.
@@ -148,7 +148,28 @@ public class Juego
      */
     public void jugar()
     {
-
+        repartir();
+        int bucleDeCartas = 0;
+        Scanner sc = new Scanner(System.in);
+        Baza baza = new Baza(jugadores.length, paloQuePinta);
+        int bazasGanadas = 0;
+        while(bucleDeCartas < 5){
+             jugadores[0].verCartasJugador();
+             int jugador = 0;
+             System.out.print("Introduzca texto: ");
+             String carta = sc.nextLine();
+             
+             while(jugador < jugadores.length){
+                Carta cartaTirada = jugadores[jugador].tirarCarta(sc.nextLine());
+                if (cartaTirada != null ){
+                    baza.addCarta(cartaTirada, jugadores[jugador].getNombre());
+                }
+                jugador++;
+            }
+            
+             
+             bucleDeCartas++;
+        }        
         
     }    
 }
