@@ -66,7 +66,7 @@ public class Juego
      *
      * @return El palo que pinta tras repartir
      */
-    private int repartir() 
+    public int repartir() 
     {
         mazo.barajar();
 
@@ -106,9 +106,20 @@ public class Juego
      * @param nombre El nombre del jugador a buscar
      * @return La posición del jugador buscado o -1 en caso de no hallarlo.
      */
-    private int encontrarPosicionJugadorPorNombre(String nombre)
+    public int encontrarPosicionJugadorPorNombre(String nombre)
     {
-        
+        int posicion = -1;
+        boolean encontrado = false;
+        int recorrerPosiciones = 0;
+        while(recorrerPosiciones < jugadores.length && encontrado == false){
+            
+            if(jugadores[recorrerPosiciones].getNombre().equals(nombre)){
+                posicion = recorrerPosiciones;
+                encontrado = true;
+            }
+            recorrerPosiciones++;
+        }
+        return posicion;
     }
     
         
@@ -135,7 +146,7 @@ public class Juego
      *    bazas) o "no es julepe".
      *
      */
-    private void jugar()
+    public void jugar()
     {
 
         
