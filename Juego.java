@@ -59,7 +59,6 @@ public class Juego
         jugar();
     }
     
-    
     /**
      * Método que reparte 5 cartas a cada uno de los jugadores presentes en
      * la partida y elige un palo para que pinte.

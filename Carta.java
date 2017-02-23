@@ -36,7 +36,7 @@ public class Carta
         String textoADevolver = "";
 
         String textoValor = Integer.toString(valor);
-        String textoPalo = "" + palo;
+        String textoPalo = palo.toString().toLowerCase();
 
         
 
